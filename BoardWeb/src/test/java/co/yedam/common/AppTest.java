@@ -18,13 +18,13 @@ public class AppTest {
 		
 		Student std = new Student();
 //		std.setStdNo("S0003");
-		std.setStdName("김민수");
-		std.setPhone("010-6789-6000");
+		std.setStdName("박석민");
+//		std.setPhone("010-6789-6000");
 //		std.setBldType("O");
 		
 //		sqlSession.insert("co.yedam.mapper.StudentMapper.insertStudent", std);
 //		sqlSession.update("co.yedam.mapper.StudentMapper.updateStudent", std);
-		mapper.updateStudent(std);
+		mapper.deleteStudent(std);
 		sqlSession.commit();
 		
 		List<Student> list //
