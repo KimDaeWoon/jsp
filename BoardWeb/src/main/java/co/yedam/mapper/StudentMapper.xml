@@ -14,12 +14,6 @@
 		values(#{stdNo}, #{stdName}, #{phone}, #{bldType})
 	</insert>
 
-	<update id="updateStudent" parameterType="co.yedam.vo.Student">
-		update tbl_student
-		set phone = #{phone}
-		where std_name = #{stdName}
-	</update>
-	
 	<delete id="deleteStudent" parameterType ="co.yedam.vo.Student">
 		delete from tbl_student
 		where std_name = #{stdName}

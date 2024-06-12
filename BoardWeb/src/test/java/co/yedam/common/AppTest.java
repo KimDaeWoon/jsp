@@ -5,34 +5,29 @@ import java.util.List;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 
-import co.yedam.mapper.StudentMapper;
-import co.yedam.vo.Student;
+import co.yedam.mapper.BoardMapper;
+import co.yedam.service.BoardService;
+import co.yedam.service.BoardServiceImpl;
+import co.yedam.vo.BoardVO;
 
 public class AppTest {
+
 	public static void main(String[] args) {
-		SqlSessionFactory sqlSessionFactory = DataSource.getInstance();
-		SqlSession sqlSession = sqlSessionFactory.openSession();
+//		SqlSessionFactory sqlSessionFactory = DataSource.getInstance();
+//		SqlSession sqlSession = sqlSessionFactory.openSession();
+//		
+//		//interface - 구현객체
+//		BoardMapper mapper = sqlSession.getMapper(BoardMapper.class);
+//		
+//		List<BoardVO> list = mapper.boardListPaging(3);
+//				
+//		for(BoardVO bvo : list) {
+//			System.out.println(bvo.toString());
+//		}
 		
-		// 						interface = 구현객체 관계
-		StudentMapper mapper = sqlSession.getMapper(StudentMapper.class); 
+		BoardService svc = new BoardServiceImpl();
 		
-		Student std = new Student();
-//		std.setStdNo("S0003");
-		std.setStdName("박석민");
-//		std.setPhone("010-6789-6000");
-//		std.setBldType("O");
-		
-//		sqlSession.insert("co.yedam.mapper.StudentMapper.insertStudent", std);
-//		sqlSession.update("co.yedam.mapper.StudentMapper.updateStudent", std);
-		mapper.deleteStudent(std);
-		sqlSession.commit();
-		
-		List<Student> list //
-//				= sqlSession.selectList("co.yedam.mapper.StudentMapper.selectBlog");
-				= mapper.selectBlog();
-		
-		for(Student std1 : list) {
-			System.out.println(std1.toString());
-		}
+		System.out.println(svc.getBoard(100));
 	}
+	
 }
