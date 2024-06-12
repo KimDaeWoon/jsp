@@ -29,19 +29,24 @@
 		from board_tbl
 	</select>
 		
-	<insert id = "deleteBoard" parameterType = "int">
-		delete from board_tbl
-		where board_no = #{boardNo}
+	<insert id = "insertBoard" parameterType = "co.yedam.vo.BoardVO">
+		insert into board_tbl(board_no, title, writer, content)
+		values(board_seq.nextval, #{title}, #{writer}, #{content})
 	</insert>	
 	
 	<select id = "selectBoard" parameterType="int" resultType = "co.yedam.vo.BoardVO">
 	    select board_no,
 		          title,
 		          writer,
+		          content,
 		          click_cnt,
 		          creation_date
         from board_tbl
-	    where board_no = #{bno}
+	    where board_no = #{boardNo}
 	</select>
-
+	
+	<delete id = "deleteBoard" parameterType="int">
+			delete from board_tbl
+			where board_no = #{boardNo}
+	</delete>
 </mapper>

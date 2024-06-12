@@ -30,7 +30,6 @@ public class BoardList implements Control {
 
 		// paging 계산.
 		int totalCnt = svc.boardTotal();
-		System.out.println(totalCnt);
 		PageDTO dto = new PageDTO(Integer.parseInt(page), totalCnt);
 		req.setAttribute("paging", dto);
 

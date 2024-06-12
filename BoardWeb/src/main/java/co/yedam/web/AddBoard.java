@@ -11,25 +11,27 @@ import co.yedam.service.BoardService;
 import co.yedam.service.BoardServiceImpl;
 import co.yedam.vo.BoardVO;
 
-public class GetBoard implements Control {
+public class AddBoard implements Control {
 
 	@Override
 	public void exec(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		// TODO 파라미터정보를 읽어 게시글 번호 조회
-		// board.jsp 페이지 출력
+		// TODO Auto-generated method stub
 		
-		String bno = req.getParameter("bno");
+		BoardService bsvc = new BoardServiceImpl();
+		BoardVO bvo = new BoardVO();
 		
-		BoardService svc = new BoardServiceImpl();
-		BoardVO brd = svc.getBoard(Integer.parseInt(bno));
+		String title = req.getParameter("title");
+		String writer =req.getParameter("writer");
+		String content = req.getParameter("content");
+		bvo.setTitle(title);
+		bvo.setWriter(writer);
+		bvo.setContent(content);
 		
-		String page = req.getParameter("page");
+		if(bsvc.addBoard(bvo)) {
+			resp.sendRedirect("boardList.do");
+		}
 		
-		req.setAttribute("board", brd);
-		req.setAttribute("page", page);
 		
-		
-		req.getRequestDispatcher("WEB-INF/view/board.jsp").forward(req, resp);
 	}
 
 }

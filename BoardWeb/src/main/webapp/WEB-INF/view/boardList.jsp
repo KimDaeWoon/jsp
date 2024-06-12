@@ -34,7 +34,7 @@
 </style>
 <%
 	//request는 jsp 내장객체
-	List<BoardVO> list =(List<BoardVO>)request.getAttribute("boardList");
+	List<BoardVO> list =(List<BoardVO>) request.getAttribute("boardList");
 	PageDTO pageDTO = (PageDTO) request.getAttribute("paging");
 %>
 <%=pageDTO %>
@@ -52,7 +52,7 @@
 		<%for(BoardVO vo : list) { %>
 		<tr>
 			<td><%=vo.getBoardNo() %></td>
-			<td><%=vo.getTitle() %></td>
+			<td><a href = "getBoard.do?bno=<%=vo.getBoardNo() %>&page=<%=pageDTO.getPage()%>"><%=vo.getTitle() %></a></td>
 			<td><%=vo.getWriter() %></td>
 			<td><%=vo.getClickCnt() %></td>
 		</tr>
