@@ -16,8 +16,15 @@ import co.yedam.web.AddStudent;
 import co.yedam.web.BoardList;
 import co.yedam.web.DeleteBoard;
 import co.yedam.web.GetBoard;
+import co.yedam.web.LoginControl;
+import co.yedam.web.LoginForm;
+import co.yedam.web.LogoutControl;
 import co.yedam.web.MainControl;
+import co.yedam.web.ModifyBoard;
+import co.yedam.web.ModifyForm;
 import co.yedam.web.ProductControl;
+import co.yedam.web.RemoveBoard;
+import co.yedam.web.RemoveForm;
 import co.yedam.web.StudentForm;
 
 // front -> 요청url(*.do) - 실행컨트롤 매칭
@@ -50,8 +57,27 @@ public class FrontController extends HttpServlet {
 		//게시판 등록
 		map.put("/addBoard.do", new AddBoard());
 		
+		//게시판 삭제 화면으로 이동
+		map.put("/removeForm.do", new RemoveForm());
+		
 		//게시판 삭제
-		map.put("/deleteBoard.do", new DeleteBoard());
+		map.put("/removeBoard.do", new RemoveBoard());
+		
+		// 수정 화면으로 이동 
+		map.put("/modifyForm.do", new ModifyForm());
+		
+		//수정 처리
+		map.put("/modifyBoard.do", new ModifyBoard());
+		
+		//로그인 화면 이동
+		map.put("/loginForm.do", new LoginForm());
+		
+		//로그인 처리
+		map.put("/login.do", new LoginControl());
+		
+		//로그아웃 처리
+		map.put("/logout.do", new LogoutControl());
+		
 	}
 	
 	@Override

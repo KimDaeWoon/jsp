@@ -12,7 +12,7 @@ public class PageDTO {
 	// 생성자.
 	public PageDTO(int page, int totalCnt) {
 		
-		this.page = page;   // 1pg ~ 4pg 이면  ~ 10pg
+		this.page = page;   // 1pg ~ (기준이 4pg 이면)  ~ 10pg
 		this.endPage =(int) (Math.ceil(page/10.0)*10);
 		this.startPage = this.endPage -9;
 		

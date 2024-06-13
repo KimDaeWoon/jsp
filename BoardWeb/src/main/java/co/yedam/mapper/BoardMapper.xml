@@ -49,4 +49,19 @@
 			delete from board_tbl
 			where board_no = #{boardNo}
 	</delete>
+	
+	<update id = "updateBoard" parameterType = "co.yedam.vo.BoardVO">
+		update board_tbl
+				    set title = #{title},
+			    	content = #{content}
+		where board_no = #{boardNo}
+	</update>
+	
+	<select id = "selectMember" resultType = "int">	<!-- 집계 함수 맞으면 1, 아니면 0 이기에 int-->
+		select count(1)
+					from member_tbl
+					where user_id = #{id}
+					and user_pw = #{pw}
+	</select>
+	
 </mapper>

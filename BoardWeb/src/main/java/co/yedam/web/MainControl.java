@@ -22,8 +22,8 @@ public class MainControl implements Control {
 		// WEB-INF/public/main.jsp
 		// main.do 호출 - main.jsp 페이지 재지정
 		
-		Student student = new Student();
-		student.setStdNo("S1000");
+		Student student = new Student();		//Student 클래스에 student 변수 생성 으로 객체 만듦
+		student.setStdNo("S1000");		// setter 외부에서 값을 넘겨준다
 		student.setStdName("홍길동");
 		student.setPhone("010-3211-6544");
 		
@@ -31,9 +31,9 @@ public class MainControl implements Control {
 		StudentMapper mapper = sqlSession.getMapper(StudentMapper.class);
 		List<Student> list = mapper.selectBlog();
 		
-		req.setAttribute("student", student);
+		req.setAttribute("student", student);	// student 변수 명을 선언 하고 student 전달 받은 값을 받아 넘겨 준다
 		req.setAttribute("studentList", list);
 		
-		req.getRequestDispatcher("WEB-INF/public/main.jsp").forward(req, resp);
+		req.getRequestDispatcher("WEB-INF/public/main.jsp").forward(req, resp);		//main.jsp 로 이동 해달라. 요청과 응답 정보를 함께 
 	}
 }
