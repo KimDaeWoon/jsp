@@ -17,6 +17,14 @@ public class RemoveBoard implements Control {
 		// TODO Auto-generated method stub
 		BoardService bsrc = new BoardServiceImpl();
 		
+		String sc = req.getParameter("searchCondition");	// 검색 기능
+		String kw = req.getParameter("keyword");
+		String page = req.getParameter("page");
+		
+		req.setAttribute("searchCondition", sc); // 검색 기능
+		req.setAttribute("keyword", kw);
+		req.setAttribute("page", page);
+		
 		int removeNo = Integer.parseInt(req.getParameter("bno"));
 		
 		if(bsrc.removeBoard(removeNo)) {

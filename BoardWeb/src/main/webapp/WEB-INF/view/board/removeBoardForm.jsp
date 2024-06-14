@@ -4,7 +4,6 @@
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>  
  <%@ taglib uri = "http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
-<%@include file="../public/header.jsp"%>
 <%
 	BoardVO board = (BoardVO) request.getAttribute("board");
 	SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
@@ -12,6 +11,9 @@
 %>
 
 <form action = "removeBoard.do" method = "get">
+<input type = "hidden" value = "${searchCondition }" name = "searchCondition">
+<input type = "hidden" value = "${keyword }" name = "keyword">
+<input type = "hidden" value = "${page }" name = "page">
 	<table class = "table">
 		<tr>
 			<th>글 번호 </th>
@@ -44,4 +46,3 @@
 		</tr>
 	</table>
 </form>
-<%@include file="../public/footer.jsp"%>

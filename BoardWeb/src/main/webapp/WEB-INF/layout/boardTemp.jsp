@@ -1,7 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@taglib uri="http://tiles.apache.org/tags-tiles" prefix="tiles" %>    
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="en">
     <head>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
@@ -14,33 +15,13 @@
         <link href="css/styles.css" rel="stylesheet" />
     </head>
     <body>
-    	<%
-    		String logId = (String) session.getAttribute("logId");
-    	%>
-    	
         <div class="d-flex" id="wrapper">
             <!-- Sidebar-->
-            <div class="border-end bg-white" id="sidebar-wrapper">
-            	<%if(logId == null){ // 로그인 전 이면(세션이 없으면)%>
-            	
-                <div class="sidebar-heading border-bottom bg-light">Start Bootstrap(Guest)</div>
-                <%}else {%>
-                <div class="sidebar-heading border-bottom bg-light">Start Bootstrap(<%=logId%>)</div>
-                <%} %>
-                <div class="list-group list-group-flush">
-                    <a class="list-group-item list-group-item-action list-group-item-light p-3" href="main.do">메인페이지</a>
-                    <a class="list-group-item list-group-item-action list-group-item-light p-3" href="StudentForm.do">학생정보등록</a>
-                    <a class="list-group-item list-group-item-action list-group-item-light p-3" href="boardList.do">자유게시판</a>
-                    <%if(logId != null) {%>
-                    <a class="list-group-item list-group-item-action list-group-item-light p-3" href="addForm.do">글 등록</a>
-                    <%} %>
-                    <% if(logId == null) {%>
-                    <a class="list-group-item list-group-item-action list-group-item-light p-3" href="loginForm.do">로그인</a>
-                    <%} else{%>
-                    <a class="list-group-item list-group-item-action list-group-item-light p-3" href="logout.do">로그아웃</a>
-                    <%} %>
-                </div>
-            </div>
+            
+            <!-- 메뉴바 -->
+            <tiles:insertAttribute name="menu" />
+            
+            
             <!-- Page content wrapper-->
             <div id="page-content-wrapper">
                 <!-- Top navigation-->
@@ -67,3 +48,15 @@
                 </nav>
                 <!-- Page content-->
                 <div class="container-fluid">
+                    <!-- body attribute에 jsp페이지를 위치에 지정. -->
+                    <tiles:insertAttribute name="body" />
+                </div>
+            </div>
+        </div>
+        <!-- Bootstrap core JS-->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- Core theme JS-->
+        <script src="js/scripts.js"></script>
+    </body>
+</html>
+

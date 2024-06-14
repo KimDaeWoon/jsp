@@ -20,6 +20,9 @@ public class GetBoard implements Control {
 		
 		String bno = req.getParameter("bno");
 		
+		String sc = req.getParameter("searchCondition");	// 검색 기능
+		String kw = req.getParameter("keyword");
+		
 		BoardService svc = new BoardServiceImpl();
 		BoardVO brd = svc.getBoard(Integer.parseInt(bno));
 		
@@ -28,8 +31,11 @@ public class GetBoard implements Control {
 		req.setAttribute("board", brd);
 		req.setAttribute("page", page);
 		
+		req.setAttribute("searchCondition", sc); // 검색 기능
+		req.setAttribute("keyword", kw);
 		
-		req.getRequestDispatcher("WEB-INF/view/board.jsp").forward(req, resp);
+		
+		req.getRequestDispatcher("board/board.tiles").forward(req, resp);
 	}
 
 }

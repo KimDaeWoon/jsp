@@ -34,6 +34,6 @@ public class MainControl implements Control {
 		req.setAttribute("student", student);	// student 변수 명을 선언 하고 student 전달 받은 값을 받아 넘겨 준다
 		req.setAttribute("studentList", list);
 		
-		req.getRequestDispatcher("WEB-INF/public/main.jsp").forward(req, resp);		//main.jsp 로 이동 해달라. 요청과 응답 정보를 함께 
+		req.getRequestDispatcher("member/main.tiles").forward(req, resp);		//main.jsp 로 이동 해달라. 요청과 응답 정보를 함께 
 	}
 }

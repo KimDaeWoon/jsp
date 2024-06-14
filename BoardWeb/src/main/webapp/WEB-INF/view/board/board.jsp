@@ -2,11 +2,14 @@
     pageEncoding="UTF-8"%>
  <%@ taglib uri ="http://java.sun.com/jsp/jstl/core" prefix="c" %>   
  <%@ taglib uri = "http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
-<jsp:include page = "../public/header.jsp" />
+
 
 <h3>상세 화면(board.jsp)</h3>
 <form name = "myFrm" action = "removeForm.do">
+<input type = "hidden" value = "${page }" name = "page">
 <input type = "hidden" value = "${board.boardNo}" name = "bno">
+<input type = "hidden" value = "${searchCondition }" name = "searchCondition">
+<input type = "hidden" value = "${keyword }" name = "keyword">
 <table class = "table">
 	<tr>
 		<th>글 번호 </th>
@@ -57,4 +60,3 @@
 	});
 </script>
 <a href = "boardList.do?page=${page}">목록으로 이동 하기</a>
-<jsp:include page = "../public/footer.jsp" />

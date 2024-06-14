@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@include file="../public/header.jsp"%>
+
 <%
 	String loginId = (String) session.getAttribute("logId");
 %>
@@ -14,7 +14,7 @@
 		</tr>
 		<tr>
 			<th>작성자</th>
-			<td><input type="text" name="writer" required value = "<%= loginId %>" readonly></td>
+			<td><input type="text" name="writer" required value = "${logId }" readonly></td>
 		</tr>
 		<tr>
 			<th>내용</th>
@@ -26,5 +26,3 @@
 	</table>
 </form>
 
-
-<%@include file="../public/footer.jsp"%>

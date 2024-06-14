@@ -27,7 +27,7 @@ public class ProductControl implements Control {
 		Student student = mapper.getStudent(stdNo);
 		req.setAttribute("student", student);
 		
-		req.getRequestDispatcher("WEB-INF/view/product.jsp").forward(req, resp);
+		req.getRequestDispatcher("board/product.tiles").forward(req, resp);
 	}
 
 }

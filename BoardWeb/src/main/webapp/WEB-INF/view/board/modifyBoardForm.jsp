@@ -2,12 +2,15 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<%@include file="../public/header.jsp"%>
-<h3>수정 화면</h3>
+<h3>수정 화면(modifyBoardForm.jsp)</h3>
 <%
 	BoardVO board = (BoardVO) request.getAttribute("board");
 %>
+<p>여기 페이지 >> ${page }</p>
 <form action = "modifyBoard.do">
+<input type = "hidden" value = "${searchCondition }" name = "searchCondition">
+<input type = "hidden" value = "${keyword }" name = "keyword">
+<input type = "hidden" value = "${page }" name = "page">
 <table class = "table">
 	<tr>
 		<th>글 번호 </th>
@@ -46,4 +49,3 @@
 	</tr>
 </table>
 </form>
-<%@include file="../public/footer.jsp"%>

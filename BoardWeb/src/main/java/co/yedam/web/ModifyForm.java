@@ -19,13 +19,19 @@ public class ModifyForm implements Control {
 		
 		String bno = req.getParameter("bno");
 		
+		String sc = req.getParameter("searchCondition");	// 검색 기능
+		String kw = req.getParameter("keyword");
+		String page = req.getParameter("page");
+		
 		BoardService svc = new BoardServiceImpl();
 		BoardVO brd = svc.getBoard(Integer.parseInt(bno));
 		
 		req.setAttribute("board", brd);
 		
+		req.setAttribute("searchCondition", sc); // 검색 기능
+		req.setAttribute("keyword", kw);
 		
-		
+		req.setAttribute("page", page);
 		
 		req.getRequestDispatcher("WEB-INF/view/modifyBoardForm.jsp").forward(req, resp);
 	}

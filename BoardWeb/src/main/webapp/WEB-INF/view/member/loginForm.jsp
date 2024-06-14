@@ -2,7 +2,6 @@
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>  
 <%@taglib tagdir="/WEB-INF/tags" prefix="myTag"%>
-<%@include file="../public/header.jsp"%>
 <h3>로그인 화면 (loginForm.jsp)</h3>
 <myTag:line/>
 <c:set var = "name" value = "hong"></c:set>
@@ -28,4 +27,3 @@
 </table>
 
 </form>
-<%@include file="../public/footer.jsp"%>
