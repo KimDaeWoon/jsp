@@ -10,6 +10,7 @@ import javax.servlet.http.HttpSession;
 import co.yedam.common.Control;
 import co.yedam.service.BoardService;
 import co.yedam.service.BoardServiceImpl;
+import co.yedam.vo.MemberVO;
 
 public class LoginControl implements Control {
 
@@ -21,12 +22,15 @@ public class LoginControl implements Control {
 		String pw = req.getParameter("pw");
 		
 		BoardService svc = new BoardServiceImpl();
-		
-		if(svc.checkMember(id, pw)) {	// id 가 "happy" 와 pw 가 "1111"이면 
+		MemberVO mvo = svc.checkMember(id, pw);
+		if(mvo != null) {	// id 가 "happy" 와 pw 가 "1111"이면 
 			HttpSession session = req.getSession();
 			session.setAttribute("logId", id);	// session 객체에 변수 명이 "logId" 이고 id 를 data 등록 
-			
-			resp.sendRedirect("main.do");	// main.do 로 보낸다 
+			if(mvo.getResponsibility().equals("User")) {
+				resp.sendRedirect("main.do");
+			}else if(mvo.getResponsibility().equals("Admin")) {
+				resp.sendRedirect("memberList.do");
+			}
 		}else {
 			resp.sendRedirect("loginForm.do");
 		}

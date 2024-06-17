@@ -6,6 +6,7 @@ import org.apache.ibatis.annotations.Param;
 
 import co.yedam.common.SearchVO;
 import co.yedam.vo.BoardVO;
+import co.yedam.vo.MemberVO;
 
 //목록, 등록, 수정, 삭제, 단건조회
 
@@ -20,6 +21,6 @@ public interface BoardMapper {
 	BoardVO selectBoard(int bno);	// 단건 조회
 	
 	// 회원 id, pw
-	int selectMember(@Param("id") String id, @Param("pw") String pw);
+	MemberVO selectMember(@Param("id") String id, @Param("pw") String pw);
 	
 }

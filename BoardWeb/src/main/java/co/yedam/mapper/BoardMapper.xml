@@ -91,11 +91,22 @@
 		where board_no = #{boardNo}
 	</update>
 	
-	<select id = "selectMember" resultType = "int">	<!-- 집계 함수 맞으면 1, 아니면 0 이기에 int-->
-		select count(1)
+	<select id = "selectMember" resultType = "co.yedam.vo.MemberVO">	<!-- 집계 함수 맞으면 1, 아니면 0 이기에 int-->
+					select *
 					from member_tbl
 					where user_id = #{id}
 					and user_pw = #{pw}
 	</select>
+	
+	<insert id ="signUp" parameterType = "co.yedam.vo.MemberVO">
+		insert into member_tbl
+						(user_id,
+						user_pw,
+						user_name					
+						)
+		values(#{userId}, #{userPw}, #{userName})				
+	</insert>
+	
+	
 	
 </mapper>

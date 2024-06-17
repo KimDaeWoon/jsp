@@ -20,11 +20,15 @@ import co.yedam.web.LoginControl;
 import co.yedam.web.LoginForm;
 import co.yedam.web.LogoutControl;
 import co.yedam.web.MainControl;
+import co.yedam.web.MemberList;
 import co.yedam.web.ModifyBoard;
 import co.yedam.web.ModifyForm;
 import co.yedam.web.ProductControl;
 import co.yedam.web.RemoveBoard;
 import co.yedam.web.RemoveForm;
+import co.yedam.web.ScriptForm;
+import co.yedam.web.Signup;
+import co.yedam.web.SignupForm;
 import co.yedam.web.StudentForm;
 
 // front -> 요청url(*.do) - 실행컨트롤 매칭
@@ -78,6 +82,17 @@ public class FrontController extends HttpServlet {
 		//로그아웃 처리
 		map.put("/logout.do", new LogoutControl());
 		
+		//회원 가입
+		map.put("/signupForm.do", new SignupForm());
+		
+		//회원 가입 처리
+		map.put("/signup.do", new Signup());
+	
+		//회원목록(관리자템플릿)
+		map.put("/memberList.do", new MemberList());
+		
+		// 자바스크립트 연습용 페이지
+		map.put("/script.do", new ScriptForm());
 	}
 	
 	@Override
