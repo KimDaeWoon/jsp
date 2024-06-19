@@ -56,8 +56,6 @@ document.getElementById('modBtn').addEventListener('click', function(){
 
 
 	// 정상적으로 정보가 업데이트 되면 화면 수정.
-
-
 	// 수정이 안됬으면 화면수정X
 
 
