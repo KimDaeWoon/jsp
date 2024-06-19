@@ -51,20 +51,30 @@ document.getElementById('modBtn').addEventListener('click', function(){
 
 	// ajax 생성
 	const modAjax = new XMLHttpRequest();
-	
-
+	modAjax.open('get', 'modifyAjax.do?id='+id+'&nm='+name+'&pw='+pass);
+	modAjax.send();
+	modAjax.onload = function(){
+		let result = JSON.parse(modAjax.responseText);
+		if(result.retCode == 'Good'){
+				let targetTr = document.getElementById(id);
+					targetTr.children[1].innerHTML = name;
+					targetTr.children[2].innerHTML = pass;
+					document.getElementById('myModal').style.display = 'none';
+		}else{
+			alert('다시한번 더 확인 해 주세요')
+			document.getElementById('myModal').style.display = '';
+		} 
+	}
 
 
 	// 정상적으로 정보가 업데이트 되면 화면 수정.
 	// 수정이 안됬으면 화면수정X
 
 
-	let targetTr = document.getElementById(id);
-	targetTr.children[1].innerHTML = name;
-	targetTr.children[2].innerHTML = pass;
+
 
 	// 모달창 닫기.
-	document.getElementById('myModal').style.display = 'none';
+
 })
 
 

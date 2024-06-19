@@ -136,8 +136,8 @@
 	
 	<update id = "modifyMemberAjax" parameterType = "co.yedam.vo.MemberVO">
 		update member_tbl
-		set user_name = #{userName},
-			  user_pw = 	#{userPw}	
+		set   user_name = #{userName},
+			  user_pw = #{userPw}	
 		where user_id = #{userId}
 	</update>
 	

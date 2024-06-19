@@ -23,8 +23,7 @@ public class DeleteId implements Control {
 		if(svc.deleteMemberId(id)) {
 			resp.getWriter().print("{\"retCode\" : \"Good\", \"retMsg\": \"Win\"}");
 		}else {
-			resp.getWriter().print("{\"retCode\" : \"Bad\", \"retMsg\": \"Lose\"}");
-			
+			resp.getWriter().print("{\"retCode\" : \"Bad\", \"retMsg\": \"Lose\"}");			
 		}
 	}
 }

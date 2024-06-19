@@ -26,4 +26,6 @@ public interface BoardService {
 	boolean deleteMemberId(String id);
 	
 	boolean modifyMember(MemberVO mvo);
+	
+	
 }
