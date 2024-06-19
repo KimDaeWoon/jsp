@@ -112,7 +112,6 @@ document.getElementById('modBtn').addEventListener('click', function(){
 		}
 	}
  })
- 
  // 아이디 삭제 
  document.getElementById('delBtn').addEventListener('click', function(){
 	let deleteId = document.getElementById('uid').value;
