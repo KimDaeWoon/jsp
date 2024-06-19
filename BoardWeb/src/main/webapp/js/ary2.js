@@ -11,7 +11,6 @@ let result = [23, 45, 22, 39, 10, 56].filter(function(item, idx, ary){
 // console.log(employees);
 
 // employees.forEach(console.log);
-
 // 급여가 5000이 넘는 여자만 필터링.
 // 객체(= item) gender 가 F고 객체(= item) salary 가 5000 이상 이면
 let over5000 = employees.filter(function(item){
