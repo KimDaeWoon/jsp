@@ -13,14 +13,21 @@ import co.yedam.common.Control;
 import co.yedam.web.AddBoard;
 import co.yedam.web.AddForm;
 import co.yedam.web.AddStudent;
+import co.yedam.web.AjaxForm;
 import co.yedam.web.BoardList;
+import co.yedam.web.CheckIdAjax;
+import co.yedam.web.CheckPwAjax;
 import co.yedam.web.DeleteBoard;
+import co.yedam.web.DeleteId;
 import co.yedam.web.GetBoard;
 import co.yedam.web.LoginControl;
 import co.yedam.web.LoginForm;
 import co.yedam.web.LogoutControl;
 import co.yedam.web.MainControl;
+import co.yedam.web.MemberAddAjax;
+import co.yedam.web.MemberAjax;
 import co.yedam.web.MemberList;
+import co.yedam.web.ModifyAjax;
 import co.yedam.web.ModifyBoard;
 import co.yedam.web.ModifyForm;
 import co.yedam.web.ProductControl;
@@ -93,6 +100,26 @@ public class FrontController extends HttpServlet {
 		
 		// 자바스크립트 연습용 페이지
 		map.put("/script.do", new ScriptForm());
+		
+		// ajax 연습
+		map.put("/ajax.do", new AjaxForm());
+		
+		map.put("/membersAjax.do", new MemberAjax());
+		// 추가
+		map.put("/addAjax.do", new MemberAddAjax());
+		
+		// 아이디 중복값 controll
+		map.put("/checkIdAjax.do", new CheckIdAjax());
+		
+		// pW control 
+		map.put("/checkPwAjax.do", new CheckPwAjax());
+		
+		// 아이디 삭제
+		map.put("/deleteId.do", new DeleteId());
+		
+		// 정보 수정
+		map.put("/modifyAjax.do", new ModifyAjax());
+		
 	}
 	
 	@Override

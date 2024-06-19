@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<form>
+<form action = "signup.do">
 	<table>
 		<tr>
 		<th>아이디</th>

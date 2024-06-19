@@ -55,6 +55,37 @@ public class BoardServiceImpl implements BoardService{
 		// TODO Auto-generated method stub
 		return mapper.selectMember(id, pw);
 	}
+
+	@Override
+	public List<MemberVO> memberList() {
+		// TODO Auto-generated method stub
+		return mapper.memberList();
+	}
+
+	@Override
+	public boolean addMemberAjax(MemberVO mvo) {
+		// TODO Auto-generated method stub
+		return mapper.insertMemberAjax(mvo) == 1;
+	}
+
+	@Override
+	public boolean checkMemberId(String id) {
+		// TODO Auto-generated method stub
+		return mapper.selectMemeberAjax(id) == 1;
+	}
+
+	@Override
+	public boolean deleteMemberId(String id) {
+		// TODO Auto-generated method stub
+		return mapper.deleteMemberAjax(id) == 1;
+	}
+
+	@Override
+	public boolean modifyMember(MemberVO mvo) {
+		// TODO Auto-generated method stub
+		return mapper.modifyMemberAjax(mvo) == 1;
+	}
+
 	
 
 }

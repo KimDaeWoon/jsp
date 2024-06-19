@@ -57,6 +57,7 @@
 	 
 	 </select>
  </div>
+
  <table class="table">
 	<tr>
 		<th>사번</th>
@@ -80,6 +81,8 @@
 		</td>
 	</tr>
 </table>
+
+
  <table class = "table">
 	<thead>
 		<tr>
@@ -100,7 +103,7 @@
 
 
 
-<script src="js/data.js"></script>
+<script src="js/ary1.js"></script>
 <script src="js/obj1.js"></script>
 
 

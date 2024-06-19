@@ -11,6 +11,8 @@ document.querySelectorAll('.container -fluid h3')// 반환 타입 NodeList
 	.forEach(item => item.remove());
 	
 	document.getElementById('fruit').remove();
+
+	
 // 월을 변경하면 달력을 출력하는 이벤트를 등록 
 document.getElementById('selectMonth').addEventListener('change', function(){
 	makeCalendar(parseInt(this.value)); //parseInt 문자를 숫자로
@@ -51,7 +53,7 @@ function makeCalendar(month = 6){
 	let tbd = document.createElement('tbody');
 	
 	document.getElementById('show').innerHTML = '';	// 짜증난다
-	
+
 	// thead 하위 요소
 	let days = ['Sun', 'Mon', 'Tue', 'Wed', 'Thr', 'Fri', 'Sat'];
 	let tr = document.createElement('tr');
@@ -74,20 +76,20 @@ function makeCalendar(month = 6){
 	}
 	
 	//날짜 출력
-	for(let d = 1; d <= lastDay; d++){	//getLastDate = 마지막 날 
+	for(let i = 1; i <= lastDay; i++){	//getLastDate = 마지막 날 
 		let td = document.createElement('td');
-		td.innerHTML = d;
-		if((d+firstDay - 1) % 7 == 0){
+		td.innerHTML = i;
+		if((i+firstDay - 1) % 7 == 0){
 			td.setAttribute('style', 'background-color :blue;');
 		}
-		if((d+firstDay - 1) % 7== 1){
+		if((i+firstDay - 1) % 7== 1){
 			td.setAttribute('style', 'background-color :red;');
 		}
 		
 		
 		tr.appendChild(td);
 			
-		if ((d+firstDay - 1) % 7 == 0) {	// 7일 짜리 줄바꿈
+		if ((i+firstDay - 1) % 7 == 0) {	// 7일 짜리 줄바꿈
 			tbd.appendChild(tr);
 			tr = document.createElement('tr');
 			
