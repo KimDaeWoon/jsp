@@ -71,7 +71,7 @@
 <div class = "container reply">
 	<div class = "header">
 		<input class="col-sm-5" id = "reply">
-		<button class="col-sm-3"  id = "addReply" >댓글 등록</button>
+		<button class="col-sm-3, btn btn-success"  id = "addReply" >댓글 등록</button>
 	</div>
 	<div class = "content">
 		<ul>
