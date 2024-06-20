@@ -23,9 +23,11 @@ public class Signup implements Control {
 			BoardService svc = new BoardServiceImpl();
 			MemberVO mvo = new MemberVO();
 			
+			mvo.setUserId(id);
+			mvo.setUserPw(pw);
+			mvo.setUserName(name);
 			
-			
-		
+		    
 	}
 
 }

@@ -4,8 +4,8 @@
   "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="co.yedam.mapper.MemberMapper">
-		<insert id="signUp" parameterType="">
-		
-		</insert>
+	<update id = "signUp" parameterType="int">
+	
+	</update>
 	
 </mapper>
