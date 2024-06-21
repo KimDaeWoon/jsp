@@ -32,6 +32,7 @@ import co.yedam.web.ModifyAjax;
 import co.yedam.web.ModifyBoard;
 import co.yedam.web.ModifyForm;
 import co.yedam.web.ProductControl;
+import co.yedam.web.PublicData;
 import co.yedam.web.RemoveBoard;
 import co.yedam.web.RemoveForm;
 import co.yedam.web.RemoveReply;
@@ -40,6 +41,7 @@ import co.yedam.web.ScriptForm;
 import co.yedam.web.Signup;
 import co.yedam.web.SignupForm;
 import co.yedam.web.StudentForm;
+import co.yedam.web.TotalCnt;
 
 // front -> 요청url(*.do) - 실행컨트롤 매칭
 // main.do -> FrontController -> /WEB-INF/public/main.jsp
@@ -56,7 +58,7 @@ public class FrontController extends HttpServlet {
 	public void init() throws ServletException {
 		map.put("/main.do", new MainControl());
 		map.put("/product.do", new ProductControl());
-		map.put("/StudentForm.do", new StudentForm());	//동록화면
+		map.put("/StudentForm.do", new StudentForm());	//등록화면
 		map.put("/addStudent.do", new AddStudent());	//db에 정보 저장
 		
 		//게시글 목록
@@ -131,6 +133,10 @@ public class FrontController extends HttpServlet {
 		
 		//댓글 등록 
 		map.put("/addReply.do", new AddReply());
+		
+		map.put("/replyTotalCnt.do", new TotalCnt());
+		
+		map.put("/publicData.do", new PublicData());
 	}
 	
 	@Override
