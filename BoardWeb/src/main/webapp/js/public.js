@@ -88,7 +88,7 @@ function coVid() { //
 	let page = 1; // 현재 페이지
 	let pageId = document.querySelector('#paging');
 	let list = document.querySelector('#centerList');
-	list.innerHTML = '';
+	//list.innerHTML = '';
 	let startPg;	// 시작 페이지
 	let endPg;		// 마지막 페이지
 	let prev;
@@ -101,23 +101,23 @@ function pagiNation(){
 	// 284개 / 10 ::29페이지 까지 있음(1페이지당 10개)
 
 	endPg = Math.ceil(page / 10)*10; //10개씩 보여주기 
-	endPg = endPg > realEnd ? realEnd : endPg; 
+	endPg = endPg > realEnd ? realEnd : endPg; 	// 
 	startPg = endPg-9;
-	prev = startPg > 1;
-	next = endPg < realEnd;
+	prev = startPg > 1;		// 10보다 크면 발생
+	next = endPg < realEnd;		//? 
 	pageId.innerHTML = '';
 
 	if(prev){
 		tagA = document.createElement('a')
 		tagA.setAttribute('data-page', startPg-1);
-		tagA.setAttribute('href', '#');
+		//tagA.setAttribute('href', '#');
 		tagA.innerHTML = "&laquo;";
 		pageId.appendChild(tagA);
 	}
 	for(p = startPg; p <= endPg; p++){
 		let tagA = document.createElement('a');
 		tagA.setAttribute('data-page', p)
-		tagA.setAttribute('href', '#');	
+		//tagA.setAttribute('href', '#');	
 		tagA.innerHTML = p;
 		 if(page == p){
 			tagA.className = 'active';	
@@ -128,7 +128,7 @@ function pagiNation(){
 		if(next){
 		tagA = document.createElement('a')
 		tagA.setAttribute('data-page', endPg+1);
-		tagA.setAttribute('href', '#');
+		//tagA.setAttribute('href', '#');
 		tagA.innerHTML = "&raquo;";
 		pageId.appendChild(tagA);
 	}
@@ -149,13 +149,13 @@ function pagiNation(){
 				target.innerHTML = "";
 				publicData.forEach(center => target.appendChild(makeRow(center))); // 
 			})
-			pagiNation();
-			for (a of abc){
-				a.classList.remove('active');
+			for (elem of abc){
+				elem.classList.remove('active');
 			}
 			e.target.classList.add('active');
 			//page = item.dataset.page; //?
 
+			pagiNation();
 	})
 	})
 
