@@ -104,7 +104,7 @@
 
 
 <script src="js/ary1.js"></script>
-<script src="js/obj1.js"></script>
+<script src="js/reply연습.js"></script>
 
 
 

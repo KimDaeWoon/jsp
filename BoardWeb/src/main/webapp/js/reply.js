@@ -22,6 +22,8 @@ document.querySelectorAll('div.pagination a').forEach(item => {
 	})
 })
 
+
+
 // 댓글 건수 를 활용해서 페이징 계산 하고 목록 출력
 function makePagingFnc() {
 	svc.replyTotalCnt(bno, createPagingList);
@@ -53,6 +55,7 @@ function createPagingList() {
 	for (let p = startPage; p <= endPage; p++) {
 		let aTag = document.createElement('a');
 		aTag.setAttribute('data-page', p);
+
 		aTag.setAttribute('href', '#');
 		aTag.innerHTML = p;
 		if (page == p) {
