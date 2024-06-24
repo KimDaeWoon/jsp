@@ -27,5 +27,7 @@ public interface BoardService {
 	
 	boolean modifyMember(MemberVO mvo);
 	
+	// 파일 첨부 회원등록.
+	boolean addMemberImage(MemberVO mvo);
 	
 }

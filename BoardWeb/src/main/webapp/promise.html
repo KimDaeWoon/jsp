@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p>Promise 객체</p>
+    <script>
+        async function promisFunc(){
+            const promise = await new Promise((resolve, reject) =>{
+                setTimeout(function(){
+                    resolve('OK');
+                }, 1000); // 비동기 방식 처리 매개값으로 함수 및 지연 시간 받는다
+            });
+
+        }
+
+        promise
+            .then(function(result){      // 위에서 resolve 가 성공 하면 OK 라는 값이 함수의 result 값에 들어 간다
+                console.log(result);
+        }) // 성공시 발생
+            .catch(function(err){
+                console.log('err :',err);
+        });   //  실패시
+
+        promisFunc()
+    </script>
+</body>
+</html>

@@ -1,7 +1,9 @@
 package co.yedam.service;
 
 import java.util.List;
+import java.util.Map;
 
+import co.yedam.common.CenterVO;
 import co.yedam.vo.ReplyVO;
 
 public interface ReplyService {
@@ -11,6 +13,13 @@ public interface ReplyService {
 	boolean registerReply(ReplyVO rvo);
 	boolean removeReply(int replyNo);
 	
+	//댓글 건수
 	int getTotalCnt(int bno);
+	
+	
+	
+	int createCenterInfo(CenterVO[] array);
+	
+	List<Map<String, Object>> centerBysido();
 	
 }

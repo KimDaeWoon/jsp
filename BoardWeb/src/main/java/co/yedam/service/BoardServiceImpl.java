@@ -86,6 +86,13 @@ public class BoardServiceImpl implements BoardService{
 		return mapper.modifyMemberAjax(mvo) == 1;
 	}
 
+	@Override
+	public boolean addMemberImage(MemberVO mvo) {
+		// TODO Auto-generated method stub
+		return mapper.insertMemberAjax(mvo) == 1;
+	}
+
+	
 	
 
 }

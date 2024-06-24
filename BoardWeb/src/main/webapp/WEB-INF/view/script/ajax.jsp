@@ -106,6 +106,9 @@ body {font-family: Arial, Helvetica, sans-serif;}
 			<td><button id ="addBtn">register</button></td>
 			<td><button id ="delBtn">delete</button></td>
 		</tr>
+		<tr>
+			<th>파일</th><td><input type = "text" id = "file"></td>
+		</tr>
 	</table>
 </div>
 

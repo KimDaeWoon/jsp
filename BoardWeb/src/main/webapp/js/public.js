@@ -2,7 +2,36 @@
  * public.js
  */
 
-let url = 'https://api.odcloud.kr/api/15077586/v1/centers?page=1&perPage=10&serviceKey=TVEcjRXWY4Ec9cSw04kntDkWum2w6EHVqv1aAzL6Z8eWyNhJRgRq%2FCsftwrtHgviJaGYoySh9v2Ut6OMbH4F3A%3D%3D';
+let url = 'https://api.odcloud.kr/api/15077586/v1/centers?page=1&perPage=284&serviceKey=TVEcjRXWY4Ec9cSw04kntDkWum2w6EHVqv1aAzL6Z8eWyNhJRgRq%2FCsftwrtHgviJaGYoySh9v2Ut6OMbH4F3A%3D%3D';
+
+
+// 센터 정보 생성
+document.querySelector('#centerDB').addEventListener('click', createCenterInfo);
+function createCenterInfo(){
+	// 1. openAPI 호출로 data 받아 오기
+	// 2. 컨트롤 호출 DB 입력.
+	fetch(url)
+	.then(result => result.json())
+	.then(result => {		// [{},{},{}] => [{"id":"hong"}]
+		let centers = result.data;
+		return fetch('uploadCenter.do', {
+			method : 'post', //전달 되는 값이 body영역에 저장.
+			headers : {'Content-type' :"application/json"},	// 키 = 값 & 키 = 값
+			body :  JSON.stringify(centers) // 객체 -> json 문자열	을 uploadCenter.do 로 전달
+		})
+
+	})
+	.then(result => result.json()) // {"txnCnt" : 3}
+	.then(result => {
+		if(result.txnCnt > 0){
+			alert(result.txnCnt + '건 처리 성공');
+		}else{
+			alert('실패');
+		}
+	})
+	.catch(err => console.log(err))
+} 
+
 
 let publicData;
 const target = document.querySelector('#centerList');
@@ -19,10 +48,10 @@ let sidoArray = [];
 
 
 fetch(url)
-	.then((responseText) => responseText.json()) //[{"id": 1, "center.."}] => [{},{}]
+	.then((responseText) => responseText.json()) //[{"id": 1, "center.."}] => [{},{}]	제이슨 문자 열이면 javascript 문자열로 바꾸겠습니다
 	.then((result) => {
 		publicData = result.data;
-		
+		console.log(publicData);
 		publicData.forEach(center => {
 			target.appendChild(makeRow(center));
 			if(sidoArray.indexOf(center.sido) == -1){
@@ -38,12 +67,17 @@ fetch(url)
 		})
 		pagiNation();
 	})
-
-
+	.catch(err => console.log(err));
+	
+	
 //  center data 보여주기 
 let fields = ['id', 'centerName', 'phoneNumber', 'address'];
 function makeRow(center) {
 	let tr = document.createElement('tr');
+	tr.addEventListener('click', function(){
+	//	location.href = "map.do?x="+center.lat+"&y="+center.lng;
+	window.open("map.do?x="+center.lat+"&y="+center.lng+"&centerName="+center.centerName);
+	})
 	//    tr.setAttribute('id', fields.id);
 	fields.forEach(field => {
 		let td = document.createElement('td');
@@ -85,6 +119,7 @@ function coVid() { //
 
 }
 
+
 	let page = 1; // 현재 페이지
 	let pageId = document.querySelector('#paging');
 	let list = document.querySelector('#centerList');
@@ -101,8 +136,8 @@ function pagiNation(){
 	// 284개 / 10 ::29페이지 까지 있음(1페이지당 10개)
 
 	endPg = Math.ceil(page / 10)*10; //10개씩 보여주기 
-	endPg = endPg > realEnd ? realEnd : endPg; 	// 
 	startPg = endPg-9;
+	endPg = endPg > realEnd ? realEnd : endPg; 	// 
 	prev = startPg > 1;		// 10보다 크면 발생
 	next = endPg < realEnd;		//? 
 	pageId.innerHTML = '';
@@ -139,7 +174,6 @@ function pagiNation(){
 		item.addEventListener('click',(e) =>{
 			e.preventDefault();
 			page = item.dataset.page;
-			console.log(page, "여기");
 			let url = `https://api.odcloud.kr/api/15077586/v1/centers?page=${page}&perPage=10&serviceKey=TVEcjRXWY4Ec9cSw04kntDkWum2w6EHVqv1aAzL6Z8eWyNhJRgRq%2FCsftwrtHgviJaGYoySh9v2Ut6OMbH4F3A%3D%3D`;
 			console.log(url);
 			fetch(url)
